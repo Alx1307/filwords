@@ -1,0 +1,56 @@
+[
+  {
+    "id": 1,
+    "playerName": "player1",
+    "level": 2,
+    "time": 108
+  },
+  {
+    "id": 2,
+    "playerName": "user",
+    "level": 1,
+    "time": 45
+  },
+  {
+    "id": 3,
+    "playerName": "super_player",
+    "level": 3,
+    "time": 324
+  },
+  {
+    "id": 4,
+    "playerName": "Петя",
+    "level": 2,
+    "time": 100
+  },
+  {
+    "id": 5,
+    "playerName": "игрок",
+    "level": 3,
+    "time": 212
+  },
+  {
+    "id": 6,
+    "playerName": "Оля",
+    "level": 3,
+    "time": 301
+  },
+  {
+    "id": 7,
+    "playerName": "123",
+    "level": 1,
+    "time": 60
+  },
+  {
+    "id": 8,
+    "playerName": "Игрок1",
+    "level": 1,
+    "time": 122
+  },
+  {
+    "id": 9,
+    "playerName": "!",
+    "level": 1,
+    "time": 105
+  }
+]
