@@ -1,0 +1,20 @@
+version: "3.9"
+
+services:
+  user-service:
+    build: ./word-grid-service
+    ports:
+      - "3001:3001" 
+    networks:
+      - micro-net
+
+  order-service:
+    build: ./leaderboard-service
+    ports:
+      - "3002:3002"
+    networks:
+      - micro-net
+
+networks:
+  micro-net:
+    driver: bridge 
