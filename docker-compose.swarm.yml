@@ -1,0 +1,40 @@
+version: '3.8'
+
+services:
+  nginx:
+    image: filwords-nginx
+    ports:
+      - "80:80"
+    networks:
+      - game-network
+    deploy:
+      replicas: 2
+      restart_policy:
+        condition: on-failure
+
+  word-grid-service:
+    image: filwords-word-grid-service
+    networks:
+      - game-network
+    deploy:
+      replicas: 3
+      restart_policy:
+        condition: on-failure
+
+  leaderboard-service:
+    image: filwords-leaderboard-service
+    networks:
+      - game-network
+    volumes:
+      - leaderboard_data:/app/scores.json
+    deploy:
+      replicas: 2
+      restart_policy:
+        condition: on-failure
+
+networks:
+  game-network:
+    driver: overlay
+
+volumes:
+  leaderboard_data:
