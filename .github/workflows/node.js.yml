@@ -42,23 +42,44 @@ jobs:
         working-directory: ./frontend
         run: npm run build
         
-  backend:
-    name: Backend (Node.js) Tests
-    runs-on: ubuntu-latest
-    needs: frontend
-
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '22'
-
-      - name: Install backend dependencies
-        working-directory: ./backend
-        run: npm ci
-
-      - name: Run backend tests
-        working-directory: ./backend
-        run: npm test || echo "No tests found, skipping..."
+  leaderboard-service:
+      name: Leaderboard Service Tests
+      runs-on: ubuntu-latest
+      needs: frontend
+  
+      steps:
+        - uses: actions/checkout@v4
+  
+        - name: Setup Node.js
+          uses: actions/setup-node@v4
+          with:
+            node-version: '22'
+  
+        - name: Install leaderboard service dependencies
+          working-directory: ./leaderboard-service
+          run: npm ci
+  
+        - name: Run leaderboard service tests
+          working-directory: ./leaderboard-service
+          run: npm test || echo "No tests found, skipping..."
+  
+  word-grid-service:
+      name: Word Grid Service Tests
+      runs-on: ubuntu-latest
+      needs: frontend
+  
+      steps:
+        - uses: actions/checkout@v4
+  
+        - name: Setup Node.js
+          uses: actions/setup-node@v4
+          with:
+            node-version: '22'
+  
+        - name: Install word-grid service dependencies
+          working-directory: ./word-grid-service
+          run: npm ci
+  
+        - name: Run word-grid service tests
+          working-directory: ./word-grid-service
+          run: npm test || echo "No tests found, skipping..."
